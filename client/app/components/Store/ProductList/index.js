@@ -41,7 +41,7 @@ const ProductList = props => {
                         src={`${
                           product && product.imageUrl
                             ? `http://localhost:3000/images/${product.imageUrl}`
-                            : '/images/placeholder-image.png'
+                            : "/images/placeholder-image.png"
                         }`}
                       />
                     </div>
