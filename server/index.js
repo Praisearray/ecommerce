@@ -11,11 +11,10 @@ const routes = require('./routes');
 const socket = require('./socket');
 const setupDB = require('./utils/db');
 
-app.use(express.static('public'));
-
 const { port } = keys;
 const app = express();
 
+app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(
