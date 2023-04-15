@@ -18,7 +18,7 @@ const {
 const { ROLES } = require('../../constants');
 
 // const storage = multer.memoryStorage();
-const upload = multer({ dest: 'uploads/' });
+const upload = multer({ dest: 'public/images' })
 
 // fetch product slug api
 router.get('/item/:slug', async (req, res) => {
@@ -269,7 +269,7 @@ router.post(
       const taxable = req.body.taxable;
       const isActive = req.body.isActive;
       const brand = req.body.brand;
-      const image = req.file;
+      // const image = req.file;
 
       if (!sku) {
         return res.status(400).json({ error: 'You must enter sku.' });
@@ -295,6 +295,8 @@ router.post(
         return res.status(400).json({ error: 'This sku is already in use.' });
       }
 
+      const imageUrl = req.file.filename;
+
       // const { imageUrl, imageKey } = await s3Upload(image);
 
       const product = new Product({
@@ -307,7 +309,7 @@ router.post(
         isActive,
         brand,
         imageUrl,
-        imageKey
+        // imageKey
       });
 
       const savedProduct = await product.save();

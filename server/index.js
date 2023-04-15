@@ -11,6 +11,8 @@ const routes = require('./routes');
 const socket = require('./socket');
 const setupDB = require('./utils/db');
 
+app.use(express.static('public'));
+
 const { port } = keys;
 const app = express();
 
