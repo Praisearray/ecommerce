@@ -197,7 +197,8 @@ const getCartItems = cartItems => {
     const newItem = {};
     newItem.quantity = item.quantity;
     newItem.price = item.price;
-    newItem.taxable = item.taxable;
+    newItem.cgst = item.cgst;
+    newItem.sgst = item.sgst;
     newItem.product = item._id;
     newCartItems.push(newItem);
   });

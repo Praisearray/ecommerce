@@ -245,7 +245,8 @@ export const addProduct = () => {
         description: 'required|max:200',
         quantity: 'required|numeric',
         price: 'required|numeric',
-        taxable: 'required',
+        cgst: 'required|numeric',
+        sgst: 'required|numeric',
         image: 'required',
         brand: 'required'
       };
@@ -264,7 +265,8 @@ export const addProduct = () => {
         quantity: product.quantity,
         image: product.image,
         isActive: product.isActive,
-        taxable: product.taxable.value,
+        cgst: product.cgst.value,
+        sgst: product.sgst.value,
         brand:
           user.role !== ROLES.Merchant
             ? brand != 0
@@ -283,7 +285,8 @@ export const addProduct = () => {
           'Description may not be greater than 200 characters.',
         'required.quantity': 'Quantity is required.',
         'required.price': 'Price is required.',
-        'required.taxable': 'Taxable is required.',
+        'required.cgst': 'CGST is required.',
+        'required.sgst': 'SGST is required.',
         'required.image': 'Please upload files with jpg, jpeg, png format.',
         'required.brand': 'Brand is required.'
       });
@@ -340,7 +343,8 @@ export const updateProduct = () => {
         description: 'required|max:200',
         quantity: 'required|numeric',
         price: 'required|numeric',
-        taxable: 'required',
+        cgst: 'required|numeric',
+        sgst: 'required|numeric',
         brand: 'required'
       };
 
@@ -355,7 +359,8 @@ export const updateProduct = () => {
         description: product.description,
         quantity: product.quantity,
         price: product.price,
-        taxable: product.taxable,
+        cgst: product.cgst,
+        sgst: product.sgst,
         brand: brand != 0 ? brand : null
       };
 
@@ -372,7 +377,8 @@ export const updateProduct = () => {
           'Description may not be greater than 200 characters.',
         'required.quantity': 'Quantity is required.',
         'required.price': 'Price is required.',
-        'required.taxable': 'Taxable is required.',
+        'required.cgst': 'CGST is required.',
+        'required.sgst': 'SGST is required.',
         'required.brand': 'Brand is required.'
       });
 

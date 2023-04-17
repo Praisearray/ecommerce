@@ -266,7 +266,8 @@ router.post(
       const description = req.body.description;
       const quantity = req.body.quantity;
       const price = req.body.price;
-      const taxable = req.body.taxable;
+      const cgst = req.body.cgst;
+      const sgst = req.body.sgst;
       const isActive = req.body.isActive;
       const brand = req.body.brand;
       // const image = req.file;
@@ -305,7 +306,8 @@ router.post(
         description,
         quantity,
         price,
-        taxable,
+        cgst,
+        sgst,
         isActive,
         brand,
         imageUrl,

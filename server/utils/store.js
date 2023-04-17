@@ -27,18 +27,6 @@ exports.caculateTaxAmount = order => {
         item.totalPrice = price * quantity;
         item.purchasePrice = price;
 
-        if (item.status !== 'Cancelled') {
-          if (item.product?.taxable && item.priceWithTax === 0) {
-            const taxAmount = price * (taxRate / 100) * 100;
-            item.totalTax = parseFloat(
-              Number((taxAmount * quantity).toFixed(2))
-            );
-
-            order.totalTax += item.totalTax;
-          } else {
-            order.totalTax += item.totalTax;
-          }
-        }
 
         item.priceWithTax = parseFloat(
           Number((item.totalPrice + item.totalTax).toFixed(2))
@@ -94,14 +82,6 @@ exports.caculateItemsSalesTax = items => {
     const quantity = item.quantity;
     item.totalPrice = parseFloat(Number((price * quantity).toFixed(2)));
 
-    if (item.taxable) {
-      const taxAmount = price * (taxRate / 100) * 100;
-
-      item.totalTax = parseFloat(Number((taxAmount * quantity).toFixed(2)));
-      item.priceWithTax = parseFloat(
-        Number((item.totalPrice + item.totalTax).toFixed(2))
-      );
-    }
 
     return item;
   });
