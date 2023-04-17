@@ -41,7 +41,7 @@ const ReviewList = props => {
             className='item-image'
             src={`${
               product.imageUrl
-                ? product.imageUrl
+                ? `${IMAGE_PATH}/${product.imageUrl}`
                 : '/images/placeholder-image.png'
             }`}
           />

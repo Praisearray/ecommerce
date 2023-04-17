@@ -40,3 +40,5 @@ export const EMAIL_PROVIDER = {
   Google: 'Google',
   Facebook: 'Facebook'
 };
+
+export const IMAGE_PATH ='http://localhost:3000/images';

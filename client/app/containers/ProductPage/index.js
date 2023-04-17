@@ -18,6 +18,7 @@ import NotFound from '../../components/Common/NotFound';
 import { BagIcon } from '../../components/Common/Icon';
 import ProductReviews from '../../components/Store/ProductReviews';
 import SocialShare from '../../components/Store/SocialShare';
+import { IMAGE_PATH } from '../../constants';
 
 class ProductPage extends React.PureComponent {
   componentDidMount() {
@@ -69,7 +70,7 @@ class ProductPage extends React.PureComponent {
                     className='item-image'
                     src={`${
                       product.imageUrl
-                        ? product.imageUrl
+                        ? `${IMAGE_PATH}/${product.imageUrl}`
                         : '/images/placeholder-image.png'
                     }`}
                   />
@@ -101,7 +102,7 @@ class ProductPage extends React.PureComponent {
                         </p>
                       )}
                       <p className='item-desc'>{product.description}</p>
-                      <p className='price'>${product.price}</p>
+                      <p className='price'>₹{product.price}</p>
                     </div>
                     <div className='item-customize'>
                       <Input
