@@ -9,6 +9,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { formatDate } from '../../../utils/date';
+import { IMAGE_PATH } from '../../../constants';
 
 const OrderList = props => {
   const { orders } = props;
@@ -20,8 +21,8 @@ const OrderList = props => {
         <img
           className='item-image'
           src={`${
-            product && product?.imageUrl
-              ? product?.imageUrl
+            product && product.imageUrl?`${IMAGE_PATH}/${product.imageUrl}`
+
               : '/images/placeholder-image.png'
           }`}
         />

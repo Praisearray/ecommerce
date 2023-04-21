@@ -7,6 +7,7 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
+import { IMAGE_PATH } from '../../../constants';
 
 const ProductList = props => {
   const { products } = props;
@@ -23,7 +24,7 @@ const ProductList = props => {
             className='item-image'
             src={`${
               product && product.imageUrl
-                ? `http://localhost:3000/images/${product.imageUrl}`
+                ? `${IMAGE_PATH}/${product.imageUrl}`
                 : "/images/placeholder-image.png"
             }`}
           />

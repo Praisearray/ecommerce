@@ -9,6 +9,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import AddToWishList from '../AddToWishList';
+import { IMAGE_PATH } from '../../../constants';
 
 const ProductList = props => {
   const { products, updateWishlist, authenticated } = props;
@@ -40,7 +41,7 @@ const ProductList = props => {
                         className='item-image'
                         src={`${
                           product && product.imageUrl
-                            ? `http://localhost:3000/images/${product.imageUrl}`
+                            ? `${IMAGE_PATH}/${product.imageUrl}`
                             : "/images/placeholder-image.png"
                         }`}
                       />
@@ -58,7 +59,7 @@ const ProductList = props => {
                     </div>
                   </div>
                   <div className='d-flex flex-row justify-content-between align-items-center px-4 mb-2 item-footer'>
-                    <p className='price mb-0'>${product.price}</p>
+                    <p className='price mb-0'>₹{product.price}</p>
                     {product.totalReviews > 0 && (
                       <p className='mb-0'>
                         <span className='fs-16 fw-normal mr-1'>

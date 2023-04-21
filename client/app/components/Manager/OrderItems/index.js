@@ -9,7 +9,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Row, Col, DropdownItem } from 'reactstrap';
 
-import { ROLES, CART_ITEM_STATUS } from '../../../constants';
+import { ROLES, CART_ITEM_STATUS, IMAGE_PATH } from '../../../constants';
 import Button from '../../Common/Button';
 import DropdownConfirm from '../../Common/DropdownConfirm';
 
@@ -91,7 +91,8 @@ const OrderItems = props => {
                     className='item-image'
                     src={`${
                       item.product && item.product.imageUrl
-                        ? item.product.imageUrl
+                        ? `${IMAGE_PATH}/${item.product.imageUrl}`
+
                         : '/images/placeholder-image.png'
                     }`}
                   />
@@ -109,7 +110,7 @@ const OrderItems = props => {
                           </Link>
                           <div className='d-flex align-items-center justify-content-between'>
                             <span className='price'>
-                              ${item.purchasePrice || item.product.price}
+                            ₹{item.purchasePrice || item.product.price}
                             </span>
                           </div>
                         </>
@@ -128,7 +129,7 @@ const OrderItems = props => {
                       </p>
                       <p>
                         Total Price
-                        <span className='order-label'>{` $${item.totalPrice}`}</span>
+                        <span className='order-label'>{` ₹${item.totalPrice}`}</span>
                       </p>
                     </div>
                   </div>
@@ -146,7 +147,7 @@ const OrderItems = props => {
                   </div>
 
                   <div className='text-center'>
-                    <p className='order-label'>{` $${item.totalPrice}`}</p>
+                    <p className='order-label'>{` ₹${item.totalPrice}`}</p>
 
                     <p>Total Price</p>
                   </div>
